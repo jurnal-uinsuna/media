@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en-US">
 <head>
+
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>LEVANA</title>
 
+<meta name="description" content="LEVANA">
+<meta name="generator" content="Jekyll v3.10.0">
+
+<link rel="canonical" href="https://jurnal-uinsuna.github.io/media/">
+
+<meta property="og:title" content="LEVANA">
+<meta property="og:description" content="LEVANA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jurnal-uinsuna.github.io/media/">
+<meta property="og:site_name" content="blog">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LEVANA">
+<meta name="twitter:description" content="LEVANA">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"LEVANA",
+ "url":"https://jurnal-uinsuna.github.io/media/"
+}
+</script>
+
 <style>
+
 html,body{
 margin:0;
 height:100%;
@@ -26,46 +55,45 @@ max-width:100%;
 max-height:70vh;
 object-fit:contain;
 }
+
 </style>
+
 </head>
 
 <body>
 
 <canvas id="canvas"></canvas>
 
-<img
-src="https://user-images.githubusercontent.com/14011726/94132137-7d4fc100-fe7c-11ea-8512-69f90cb65e48.gif"
-alt="LEVANA GIF"
-/>
+<img src="https://user-images.githubusercontent.com/14011726/94132137-7d4fc100-fe7c-11ea-8512-69f90cb65e48.gif">
 
 <script>
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
 
-canvas.width = 700;
-canvas.height = 200;
+canvas.width=700;
+canvas.height=200;
 
 ctx.fillStyle="#fff";
 ctx.font="bold 90px Arial";
 ctx.textAlign="center";
-ctx.fillText("LEVANA", canvas.width/2,130);
+ctx.fillText("LEVANA",canvas.width/2,130);
 
-const imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+const imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-let particles = [];
+let particles=[];
 let phase="idle";
 let timer=0;
 
-const gap = 3;
+const gap=3;
 
 for(let y=0;y<canvas.height;y+=gap){
 for(let x=0;x<canvas.width;x+=gap){
 
-let i=(y*canvas.width + x)*4;
+let i=(y*canvas.width+x)*4;
 
-if(imageData.data[i+3] > 120){
+if(imageData.data[i+3]>120){
 
 particles.push({
 x:x,
@@ -108,6 +136,7 @@ timer++;
 
 if(timer===120) phase="spread";
 if(timer===240) phase="return";
+
 if(timer===420){
 phase="idle";
 timer=0;
